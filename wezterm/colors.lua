@@ -1,9 +1,9 @@
 local wezterm = require("wezterm")
 
 local M = {}
-local selected_scheme = "rose-pine"
+local selected_scheme = "melange_dark"
 local scheme = wezterm.get_builtin_color_schemes()[selected_scheme]
-local BG_COLOR = "#111111"
+local BG_COLOR = "#292522"
 
 M.color_schemes = {
 	[selected_scheme] = scheme,

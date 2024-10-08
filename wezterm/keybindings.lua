@@ -27,7 +27,7 @@ M.keys = {
 	},
 	{
 		mods = "LEADER",
-		key = "|",
+		key = "\\",
 		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 	},
 	{
@@ -74,6 +74,22 @@ M.keys = {
 		mods = "LEADER",
 		key = "UpArrow",
 		action = wezterm.action.AdjustPaneSize({ "Up", 5 }),
+	},
+	{
+		mods = 'LEADER',
+		key = 'e',
+		action = wezterm.action.PromptInputLine {
+			description = 'Enter new name for tab',
+			-- initial_value = 'My Tab Name',
+			action = wezterm.action_callback(function(window, pane, line)
+				-- line will be `nil` if they hit escape without entering anything
+				-- An empty string if they just hit enter
+				-- Or the actual line of text they wrote
+				if line then
+					window:active_tab():set_title(line)
+				end
+			end),
+		},
 	},
 }
 

@@ -1,9 +1,8 @@
 local wezterm = require("wezterm")
 
 local M = {}
-local selected_scheme = "rose-pine"
+local selected_scheme = "melange_dark"
 local scheme = wezterm.get_builtin_color_schemes()[selected_scheme]
-local BG_COLOR = "#111111"
 
 -- window settings
 M.bold_brightens_ansi_colors = true
@@ -33,12 +32,12 @@ end
 
 -- format tab style
 wezterm.on("format-tab-title", function(tab, tabs, panes, conf, hover, max_width)
-	local background = "#65737E"
-	local foreground = "#F0F2F5"
-	local edge_background = BG_COLOR
+	local background = "#FFFFFF"
+	local foreground = "#ECE1D7"
+	local edge_background = "#292522"
 
 	if tab.is_active or hover then
-		background = scheme.ansi[4]
+		background = "#78997A"
 		foreground = "#282C34"
 	end
 	local edge_foreground = background
@@ -69,11 +68,11 @@ wezterm.on("update-right-status", function(window, _)
 	local prefix = ""
 
 	if window:leader_is_active() then
-		prefix = " " .. utf8.char(0x1f30a) -- ocean wave
+		prefix = " " .. utf8.char(0x1f30a) .. " " -- ocean wave
 	end
 
 	window:set_left_status(wezterm.format({
-		{ Background = { Color = scheme.ansi[3] } },
+		{ Background = { Color = "#BD8183" } },
 		{ Text = prefix },
 	}))
 end)
