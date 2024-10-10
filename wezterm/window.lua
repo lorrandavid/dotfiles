@@ -1,8 +1,8 @@
 local wezterm = require("wezterm")
 
 local M = {}
-local selected_scheme = "melange_dark"
-local scheme = wezterm.get_builtin_color_schemes()[selected_scheme]
+-- local selected_scheme = "Catppuccin Macchiato"
+-- local scheme = wezterm.get_builtin_color_schemes()[selected_scheme]
 
 -- window settings
 M.bold_brightens_ansi_colors = true
@@ -22,46 +22,46 @@ M.status_update_interval = 1000
 M.use_fancy_tab_bar = false
 M.tab_max_width = 32
 
-local function tab_title(tab)
-	local title = tab.tab_title
-	if title and #title > 0 then
-		return title
-	end
-	return tab.active_pane.title
-end
+-- local function tab_title(tab)
+-- 	local title = tab.tab_title
+-- 	if title and #title > 0 then
+-- 		return title
+-- 	end
+-- 	return tab.active_pane.title
+-- end
 
 -- format tab style
-wezterm.on("format-tab-title", function(tab, tabs, panes, conf, hover, max_width)
-	local background = "#FFFFFF"
-	local foreground = "#ECE1D7"
-	local edge_background = "#292522"
-
-	if tab.is_active or hover then
-		background = "#78997A"
-		foreground = "#282C34"
-	end
-	local edge_foreground = background
-
-	local title = tab_title(tab)
-
-	local max = M.tab_max_width - 9
-	if #title > max then
-		title = wezterm.truncate_right(title, max) .. "…"
-	end
-
-	return {
-		{ Background = { Color = edge_background } },
-		{ Foreground = { Color = edge_foreground } },
-		-- { Text = " " },
-		{ Background = { Color = background } },
-		{ Foreground = { Color = foreground } },
-		{ Attribute = { Intensity = tab.is_active and "Bold" or "Normal" } },
-		{ Text = " " .. (tab.tab_index + 1) .. ": " .. title .. " " },
-		{ Background = { Color = edge_background } },
-		{ Foreground = { Color = edge_foreground } },
-		-- { Text = "" },
-	}
-end)
+-- wezterm.on("format-tab-title", function(tab, tabs, panes, conf, hover, max_width)
+-- 	local background = "#FFFFFF"
+-- 	local foreground = "#ECE1D7"
+-- 	local edge_background = "#292522"
+--
+-- 	if tab.is_active or hover then
+-- 		background = "#78997A"
+-- 		foreground = "#282C34"
+-- 	end
+-- 	local edge_foreground = background
+--
+-- 	local title = tab_title(tab)
+--
+-- 	local max = M.tab_max_width - 9
+-- 	if #title > max then
+-- 		title = wezterm.truncate_right(title, max) .. "…"
+-- 	end
+--
+-- 	return {
+-- 		{ Background = { Color = edge_background } },
+-- 		{ Foreground = { Color = edge_foreground } },
+-- 		-- { Text = " " },
+-- 		{ Background = { Color = background } },
+-- 		{ Foreground = { Color = foreground } },
+-- 		{ Attribute = { Intensity = tab.is_active and "Bold" or "Normal" } },
+-- 		{ Text = " " .. (tab.tab_index + 1) .. ": " .. title .. " " },
+-- 		{ Background = { Color = edge_background } },
+-- 		{ Foreground = { Color = edge_foreground } },
+-- 		-- { Text = "" },
+-- 	}
+-- end)
 
 -- show if leader key is active
 wezterm.on("update-right-status", function(window, _)
