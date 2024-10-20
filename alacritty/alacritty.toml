@@ -2,7 +2,7 @@
 
 # Theme
 import = [
-  "C:\\Users\\Lorran\\.config\\alacritty\\themes\\catppuccin_macchiato.toml"
+  "C:\\Users\\Lorran\\.config\\alacritty\\themes\\gruvbox_material.yml"
 ]
 
 # Window configuration
@@ -11,30 +11,28 @@ dynamic_title = true
 decorations = "full"
 
 [window.padding]
-x = 6
-y = 6
+x = 4
+y = 4
 
 # Font configuration
 [font]
 size = 12
-offset.x = 0
-offset.y = 4
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
-style = "Regular"
+family = "ZedMono Nerd Font"
+style = "Extended Medium"
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
-style = "Medium"
+family = "ZedMono Nerd Font"
+style = "Extended Bold"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
-style = "Italic"
+family = "ZedMono Nerd Font"
+style = "Extended Medium Italic"
 
 [font.bold_italic]
-family = "JetBrainsMono Nerd Font"
-style = "Bold Italic"
+family = "ZedMono Nerd Font"
+style = "Extended Bold Italic"
 
 # Shell configuration
 [shell]
